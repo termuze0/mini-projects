@@ -1,10 +1,10 @@
 def is_operator(op):
-    """Check if the character is a valid operator."""
+    
     return op in ['+', '-', '*', '/']
 
 
 def evaluate_postfix(expression):
-    """Evaluate the given postfix expression."""
+    
     stack = []
     
     expression = expression.split()
