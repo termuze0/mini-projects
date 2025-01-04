@@ -1,5 +1,5 @@
 FROM python:3.9
-WORKDIR /workspaces
+WORKDIR /Desktop 
 COPY . .
 RUN pip install flask
 EXPOSE 80 
