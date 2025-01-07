@@ -11,16 +11,13 @@ class ChessClock:
         self.player2_time = 300
 
         # Active player (1 or 2)
-        self.active_player = 1
+        self.active_player = None
 
         # Timer running flag
         self.running = False
 
         # Create UI elements
         self.create_widgets()
-
-        # Timer update loop
-        self.update_timer()
 
     def create_widgets(self):
         # Player 1
@@ -46,6 +43,9 @@ class ChessClock:
         self.reset_button = tk.Button(self.root, text="Reset", command=self.reset_timer)
         self.reset_button.grid(row=3, column=1, pady=10)
 
+        # Timer update loop
+        self.update_timer()
+
     def format_time(self, seconds):
         minutes = seconds // 60
         seconds = seconds % 60
@@ -53,48 +53,17 @@ class ChessClock:
 
     def start_timer(self):
         self.running = True
+        self.active_player = 1  # Player 1 starts by default
         self.start_button.config(state=tk.DISABLED)
-        self.player1_button.config(state=tk.NORMAL if self.active_player == 1 else tk.DISABLED)
-        self.player2_button.config(state=tk.NORMAL if self.active_player == 2 else tk.DISABLED)
+        self.player1_button.config(state=tk.NORMAL)
+        self.player2_button.config(state=tk.DISABLED)
 
     def reset_timer(self):
         self.running = False
         self.player1_time = 300
         self.player2_time = 300
-        self.active_player = 1
+        self.active_player = None
         self.update_display()
         self.start_button.config(state=tk.NORMAL)
         self.player1_button.config(state=tk.DISABLED)
-        self.player2_button.config(state=tk.DISABLED)
-
-    def switch_turn(self, player):
-        if self.running and self.active_player == player:
-            self.active_player = 2 if player == 1 else 1
-            self.player1_button.config(state=tk.NORMAL if self.active_player == 1 else tk.DISABLED)
-            self.player2_button.config(state=tk.NORMAL if self.active_player == 2 else tk.DISABLED)
-
-    def update_timer(self):
-        if self.running:
-            if self.active_player == 1:
-                self.player1_time -= 1
-                if self.player1_time <= 0:
-                    self.running = False
-                    messagebox.showinfo("Game Over", "Player 1's time is up!")
-            elif self.active_player == 2:
-                self.player2_time -= 1
-                if self.player2_time <= 0:
-                    self.running = False
-                    messagebox.showinfo("Game Over", "Player 2's time is up!")
-            self.update_display()
-        self.root.after(1000, self.update_timer)
-
-    def update_display(self):
-        self.player1_timer.config(text=self.format_time(self.player1_time))
-        self.player2_timer.config(text=self.format_time(self.player2_time))
-
-
-# Run the application
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = ChessClock(root)
-    root
+        self.player2_button.config
