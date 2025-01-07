@@ -13,7 +13,7 @@ class ChessClock:
         # Active player (1 or 2)
         self.active_player = None
 
-        # Timer running flag
+        
         self.running = False
 
         # Create UI elements
