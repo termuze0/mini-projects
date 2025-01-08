@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+from * import datetime
 
 # File to save tasks
 TASK_FILE = "tasks.json"
