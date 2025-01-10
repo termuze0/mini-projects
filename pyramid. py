@@ -4,7 +4,6 @@ def print_pyramid(rows):
         print(' ' * (rows - i), end='')
         # Print stars
         print('*' * (2 * i - 1))
-
-# Input the number of rows for the pyramid
+ for the pyramid
 num_rows = int(input("Enter the number of rows: "))
 print_pyramid(num_rows)
