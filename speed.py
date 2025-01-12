@@ -1,8 +1,7 @@
 import time
 
 def speed_checker(func, *args, **kwargs):
-    """
-    Measures the execution time of a function.
+    .
 
     :param func: Function to measure.
     :param args: Positional arguments for the function.
