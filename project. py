@@ -45,3 +45,4 @@ class Project:
         print(f"Completed Tasks: {completed_tasks}")
         print(f"Pending Tasks: {pending_tasks}\n")
 
+ 
