@@ -1,0 +1,74 @@
+import datetime
+
+class Task:
+    def __init__(self, title, description, deadline, status="Pending"):
+        self.title = title
+        self.description = description
+        self.deadline = deadline
+        self.status = status
+
+    def mark_complete(self):
+        self.status = "Completed"
+
+    def __str__(self):
+        return (f"Task: {self.title}\n"
+                f"Description: {self.description}\n"
+                f"Deadline: {self.deadline}\n"
+                f"Status: {self.status}\n")
+
+class Project:
+    def __init__(self, name, description, start_date=None):
+        self.name = name
+        self.description = description
+        self.start_date = start_date or datetime.date.today()
+        self.tasks = []
+
+    def add_task(self, task):
+        self.tasks.append(task)
+
+    def view_tasks(self):
+        if not self.tasks:
+            print("No tasks added yet.")
+        else:
+            for idx, task in enumerate(self.tasks, start=1):
+                print(f"Task {idx}:\n{task}")
+
+    def progress_report(self):
+        total_tasks = len(self.tasks)
+        completed_tasks = sum(1 for task in self.tasks if task.status == "Completed")
+        pending_tasks = total_tasks - completed_tasks
+
+        print(f"Project: {self.name}")
+        print(f"Description: {self.description}")
+        print(f"Start Date: {self.start_date}")
+        print(f"Total Tasks: {total_tasks}")
+        print(f"Completed Tasks: {completed_tasks}")
+        print(f"Pending Tasks: {pending_tasks}\n")
+
+# Example Usage
+if __name__ == "__main__":
+    # Create a project
+    project = Project(
+        name="Python Planner",
+        description="A Python project for planning and managing tasks."
+    )
+
+    # Add tasks
+    task1 = Task("Setup environment", "Install Python and necessary libraries.", "2025-01-20")
+    task2 = Task("Design database schema", "Create models for the application.", "2025-01-25")
+    task3 = Task("Develop UI", "Design the user interface using a Python framework.", "2025-01-30")
+
+    project.add_task(task1)
+    project.add_task(task2)
+    project.add_task(task3)
+
+    # View tasks
+    print("=== Tasks ===")
+    project.view_tasks()
+
+    # Update task status
+    task1.mark_complete()
+
+    # View progress
+    print("\n=== Progress Report ===")
+    project.progress_report()
