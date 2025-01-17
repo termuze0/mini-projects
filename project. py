@@ -45,30 +45,3 @@ class Project:
         print(f"Completed Tasks: {completed_tasks}")
         print(f"Pending Tasks: {pending_tasks}\n")
 
-# Example Usage
-if __name__ == "__main__":
-    # Create a project
-    project = Project(
-        name="Python Planner",
-        description="A Python project for planning and managing tasks."
-    )
-
-    # Add tasks
-    task1 = Task("Setup environment", "Install Python and necessary libraries.", "2025-01-20")
-    task2 = Task("Design database schema", "Create models for the application.", "2025-01-25")
-    task3 = Task("Develop UI", "Design the user interface using a Python framework.", "2025-01-30")
-
-    project.add_task(task1)
-    project.add_task(task2)
-    project.add_task(task3)
-
-    # View tasks
-    print("=== Tasks ===")
-    project.view_tasks()
-
-    # Update task status
-    task1.mark_complete()
-
-    # View progress
-    print("\n=== Progress Report ===")
-    project.progress_report()
