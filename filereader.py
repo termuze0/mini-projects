@@ -1,10 +1,8 @@
 class FileReader:
     def __init__(self, file_path):
-        
         self.file_path = file_path
 
     def read_all(self):
-        """Read and return the entire content of the file."""
         try:
             with open(self.file_path, 'r') as file:
                 return file.read()
@@ -14,7 +12,6 @@ class FileReader:
             return f"An error occurred: {e}"
 
     def read_lines(self):
-        """Read and return the content of the file as a list of lines."""
         try:
             with open(self.file_path, 'r') as file:
                 return file.readlines()
@@ -24,7 +21,6 @@ class FileReader:
             return f"An error occurred: {e}"
 
     def read_line_by_line(self):
-        """Read and print the content of the file line by line."""
         try:
             with open(self.file_path, 'r') as file:
                 for line in file:
@@ -34,9 +30,9 @@ class FileReader:
         except Exception as e:
             print(f"An error occurred: {e}")
 
-# Example usage
+
 if __name__ == "__main__":
-    file_path = "example.txt"  # Replace with your file path
+    file_path = "example.txt"
     reader = FileReader(file_path)
     
     print("Reading entire content:")
