@@ -1,6 +1,6 @@
 class FileReader:
     def __init__(self, file_path):
-        """Initialize the FileReader with the path of the file."""
+        
         self.file_path = file_path
 
     def read_all(self):
