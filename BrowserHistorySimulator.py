@@ -30,7 +30,7 @@ class BrowserHistorySimulator:
     def get_current_page(self):
         return self.current_page
 
-# Example usage:
+
 browser = BrowserHistorySimulator()
 
 browser.visit("www.google.com")
