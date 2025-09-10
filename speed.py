@@ -20,8 +20,6 @@ def sample_function(n):
     total = 0
     for i in range(n):
         total += i
-    return total
-
-# Check speed of sample_function with n=10_000_000
+    return 
 result, exec_time = speed_checker(sample_function, 10_000_000)
 print(f"Result: {result}")
